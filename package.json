@@ -1,0 +1,22 @@
+{
+  "name": "bits-webapp",
+  "version": "1.0.0",
+  "description": "Hackthon Project",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Binary-Beast-01/BITS-WebApp.git"
+  },
+  "author": "Binary-Beast",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Binary-Beast-01/BITS-WebApp/issues"
+  },
+  "homepage": "https://github.com/Binary-Beast-01/BITS-WebApp#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
