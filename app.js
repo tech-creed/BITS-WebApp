@@ -41,7 +41,7 @@ app.get('/',(req,res)=>{
   res.render('index');
 });
 
-app.use(AuthenticationRoute)      // Authentication Route
+app.use('/auth', AuthenticationRoute)      // Authentication Route
 
 // 404 Page
 app.use((req, res) => {
