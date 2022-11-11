@@ -8,28 +8,48 @@ header{
     display:flex;
     justify-content:flex-end;
     align-items: center;
-    padding: 30px 10%;
-    background-color: transparent;
+    padding: 15px 5%;
+    
+    
+   background-color: rgb(255, 251, 251);
+}
+.logo {
+    cursor: pointer;
+    margin-right: auto;
 }
 li,a{
     font-weight: 500;
     text-decoration:none ;
-    font-size: 16px;
-    color:#fff;
+    font-size: 25px;
+    color:rgb(0, 0, 0);
 }
+
 nav ul li{
-    display: inline;
-    padding:0px 40px ;
+    display:inline-block;
+    
+    
+   
+    padding:30px ;
+    
+    
+    
+   
 }
 nav ul li a{
     transition: all 0.3s ease;
 }
 nav ul li a:hover{
-    color: #000;
-    transition: all 0.3s ease;
+    display: inline;
+    color: rgb(255, 255, 255);
+    border: 48px solid #000;
+    padding-top: 4%;
+    background-color: rgb(3, 3, 3);
+    
+    
+    transition: all 0.2s ease;
 }
 .wrapper{
-    background-image: url('./santy/pic/bg.jpg') no repear center center/cover;
+    background: url("https://i.pinimg.com/564x/f0/67/fd/f067fd4932ea5cafc7beb1834f72f41b.jpg") no-repeat center center /cover;
     width: 100%;
     display: block;
     position: relative;
@@ -49,4 +69,14 @@ nav ul li a:hover{
 .content{
     display: flex;
     padding: 80px 10%;
+    justify-content: space-between;
+    color:white;
+}
+.hero hi{
+    font-size: 40px;
+}
+.hero p{
+    margin: 30px 5% 5%;
+    font-family: 400;
+    line-height: 2;
 }
