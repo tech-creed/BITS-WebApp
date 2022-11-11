@@ -1,0 +1,52 @@
+*{
+    box-sizing: border-box;
+    margin: 0%; 
+    padding: 0%;
+}
+
+header{
+    display:flex;
+    justify-content:flex-end;
+    align-items: center;
+    padding: 30px 10%;
+    background-color: transparent;
+}
+li,a{
+    font-weight: 500;
+    text-decoration:none ;
+    font-size: 16px;
+    color:#fff;
+}
+nav ul li{
+    display: inline;
+    padding:0px 40px ;
+}
+nav ul li a{
+    transition: all 0.3s ease;
+}
+nav ul li a:hover{
+    color: #000;
+    transition: all 0.3s ease;
+}
+.wrapper{
+    background-image: url('./santy/pic/bg.jpg') no repear center center/cover;
+    width: 100%;
+    display: block;
+    position: relative;
+    z-index: 1; 
+}
+
+.wrapper:before {
+    position: absolute;
+    content: '';
+    background-image: linear-gradient(to right, rgba(32, 40, 119, 0.95), rgba(55, 46, 149, 0.95), rgba(83, 49, 177, 0.90), rgba(114, 48, 205, 0.85), rgba(150, 41, 230, 0.95));
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+.content{
+    display: flex;
+    padding: 80px 10%;
+}
