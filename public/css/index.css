@@ -31,3 +31,7 @@
 .main-index div:nth-child(1) h1{
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
+.err-msg{
+  text-align: center;
+  color: red;
+}

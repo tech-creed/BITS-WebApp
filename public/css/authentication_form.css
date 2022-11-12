@@ -1,16 +1,5 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  body{
-    font-family: Arial, Helvetica, sans-serif;
-    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSElJPxEa5pyxexovXMhPxPn_MQD9Ic3VuzDw&usqp=CAU);
-    background-size: cover;
-    background-attachment: fixed;
-  }
-  /* align items center vertically and horizontally  */
-  .container{
+ /* align items center vertically and horizontally  */
+ .container{
     display: flex;
     justify-content: center;
     align-items:center !important;
@@ -19,7 +8,7 @@
   .form{
     width: 350px;
     height: 450px;
-    background-color: rgba(41, 39, 39, 0.3);
+    background-color: rgba(41, 39, 39, 0.7);
     box-shadow: 0 5px 30px black;
   }
   .btn button {
@@ -48,7 +37,7 @@
   }
   input:focus {
     outline: none !important;
-    border-bottom: 2px solid rgb(91, 243, 131);
+    border-bottom: 2px solid #17418a;
     font-size: 17px;
     font-weight: bold;
     color: white;
@@ -75,16 +64,16 @@
     padding: 10px;
     width: 150px;
     border-radius: 20px;
-    background-color: rgb(10, 136, 43);
+    background-color: #17418a;
     border-style: none;
     color: white;
     font-weight: 600;
   }
   .btn2:hover{
-    background-color: rgba(10, 136, 43, 0.5);
+    background-color: #17418a;
   }
   .btn button:hover{
-    border-bottom: 2px solid rgb(91, 243, 131);
+    border-bottom: 2px solid #64c3ed;
   }
    
   /* hide signup form */
