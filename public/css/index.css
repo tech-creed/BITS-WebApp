@@ -1,3 +1,5 @@
+/*Styling for the Landing page section*/
+
 #home {
   background: url("/img/index/bg.jpeg") no-repeat center center /cover;
 }
@@ -39,4 +41,9 @@
 .err-msg {
   text-align: center;
   color: red;
+}
+
+/*Styling for the news category page section*/
+.tile{
+  margin: 75px;
 }

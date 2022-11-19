@@ -5,7 +5,7 @@ const cookieParser = require("cookie-parser")
 
 //Routers
 const AuthenticationRoute = require('./routers/authentication.js')
-const newsRouter = require('./routers/news.js')
+const IndexRoute = require('./routers/index_news.js')
 //--------------------------------------------------------//
 //creating a server
 const app = express()
@@ -42,10 +42,11 @@ mongo.connect(ConnectMongoDB, {
 
 
 // Routering operations
-app.use('/', newsRouter) //News Route
-// app.use('/article', newsRouter) //single Article Route
-
 app.use('/auth', AuthenticationRoute) // Authentication Route
+
+app.use('/', IndexRoute) //News Route
+
+// app.use('/article', newsRouter) //single Article Route
 
 // 404 Page
 app.use((req, res) => {

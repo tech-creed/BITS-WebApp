@@ -33,14 +33,14 @@
     </div>
   </section>
   <section id="service">
-
+    <!--
     <div class="header__search">
       <form action="/" method="POST">
         <input type="text" name="search" placeholder="Search for news" required>
         <input type="submit" value="Search">
       </form>
     </div>
-
+    -->
     <!-- News-Nav-Tab -->
 
     <div class="tile" id="tile-1">
@@ -48,10 +48,10 @@
       <ul class="nav nav-tabs nav-justified" role="tablist">
         <div class="slider"></div>
         <li class="nav-item">
-          <a class="nav-link active" id="government-tab" data-toggle="tab" href="#government" role="tab" aria-controls="Government" aria-selected="true">Government</a>
+          <a class="nav-link active" id="government-tab" data-toggle="tab" href="#general" role="tab" aria-controls="Government" aria-selected="true">General</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id="environment-tab" data-toggle="tab" href="#environment" role="tab" aria-controls="Environment" aria-selected="false">Environment</a>
+          <a class="nav-link" id="environment-tab" data-toggle="tab" href="#sports" role="tab" aria-controls="Sports" aria-selected="false">Sports</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" id="technology-tab" data-toggle="tab" href="#technology" role="tab" aria-controls="Technology" aria-selected="false">Tech</a>
@@ -66,9 +66,9 @@
 
       <!-- Tab panes -->
       <div class="tab-content">
-        <div class="tab-pane fade show active" id="government" role="tabpanel" aria-labelledby="Government-tab">
-          <% if(government != null) { %>
-          <% government.forEach(function(article, index) { %>
+        <div class="tab-pane fade show active" id="general" role="tabpanel" aria-labelledby="General-tab">
+          <% if(general != null) { %>
+          <% general.forEach(function(article, index) { %>
           <a href="<%- article.url %>" class="news__card" width="150" height="150">
             <img src="<%- article.urlToImage %>" alt="<%- article.title %>">
             <h2><%- article.title %></h2>
@@ -79,9 +79,9 @@
           No posts found.
           <% } %>
         </div>
-        <div class="tab-pane fade" id="environment" role="tabpanel" aria-labelledby="Environment-tab">
-          <% if(environment != null) { %>
-          <% environment.forEach(function(article, index) { %>
+        <div class="tab-pane fade" id="sports" role="tabpanel" aria-labelledby="Sport-tab">
+          <% if(sports != null) { %>
+          <% sports.forEach(function(article, index) { %>
           <a href="<%- article.url %>" class="news__card" width="150" height="150">
             <img src="<%- article.urlToImage %>" alt="<%- article.title %>">
             <h2><%- article.title %></h2>
