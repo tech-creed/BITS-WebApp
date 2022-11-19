@@ -1,8 +1,8 @@
-const express = require('express')
-const newsRouter = express.Router()
+// requirement importing
 const axios = require('axios')
 
-newsRouter.get('', async (req, res) => {
+// create a nav-tab Controller
+const nav_tab = async (req, res) => {
   try {
     const api_key = '4bfaa7ce565d4d15b106d3b902982160'
     const governmentNews = await axios.get(`https://newsapi.org/v2/everything?q=government&apiKey=${api_key}`)
@@ -49,9 +49,11 @@ newsRouter.get('', async (req, res) => {
       console.error('Error', err.message)
     }
   }
-})
+}
 
-newsRouter.post('/search', async (req, res) => {
+// controller for Search operation
+
+const search = async (req, res) => {
   let search = req.body.search
   try {
     const api_key = '4bfaa7ce565d4d15b106d3b902982160'
@@ -79,6 +81,6 @@ newsRouter.post('/search', async (req, res) => {
       console.error('Error', err.message)
     }
   }
-})
+}
 
-module.exports = newsRouter
+module.exports={ nav_tab , search }
