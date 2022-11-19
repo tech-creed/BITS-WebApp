@@ -1,6 +1,7 @@
 const NewsAPI = require("newsapi");
 
 API_KEY = '4bfaa7ce565d4d15b106d3b902982160'
+API_KEY = 'fd0bf2b6a6454faf892f3accdd3243ed'
 const newsapi = new NewsAPI(`${API_KEY}`);
 
 const getTopHeadlinesof = (field) => {
@@ -32,9 +33,7 @@ const HeadLineGet = async (req, res) => {
           health: healthNews.articles.slice(0, 10)
         })
       } catch (err) {
-          console.log(err.response.data)
-          console.log(err.response.status)
-          console.log(err.response.headers)
+          console.log(err);
           res.render('index', {
             government: null,
             environment: null,
@@ -57,9 +56,7 @@ const SearchPost = async (req, res) => {
     res.render('', {
         articles: null
       })
-      console.log(err.response.data)
-      console.log(err.response.status)
-      console.log(err.response.headers)
+      console.log(err)
   }
 }
 

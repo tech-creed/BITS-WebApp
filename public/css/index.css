@@ -47,3 +47,15 @@
 .tile{
   margin: 75px;
 }
+.each-row{
+  transition: 0.8s;
+  transform: scale(1);
+  margin: 30px;
+}
+.each-row:hover{
+  transition: 0.5s;
+  transform: scale(1.025);
+}
+.sub-navbar{
+  margin-top: 64px;
+}

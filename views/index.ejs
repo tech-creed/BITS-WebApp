@@ -33,6 +33,7 @@
     </div>
   </section>
   <section id="service">
+    <hr>
     <!--
     <div class="header__search">
       <form action="/" method="POST">
@@ -45,7 +46,7 @@
 
     <div class="tile" id="tile-1">
       <!-- Nav tabs -->
-      <ul class="nav nav-tabs nav-justified" role="tablist">
+      <ul class="nav nav-tabs nav-justified sub-navbar" role="tablist">
         <div class="slider"></div>
         <li class="nav-item">
           <a class="nav-link active" id="government-tab" data-toggle="tab" href="#general" role="tab" aria-controls="Government" aria-selected="true">General</a>
@@ -69,10 +70,16 @@
         <div class="tab-pane fade show active" id="general" role="tabpanel" aria-labelledby="General-tab">
           <% if(general != null) { %>
           <% general.forEach(function(article, index) { %>
-          <a href="<%- article.url %>" class="news__card" width="150" height="150">
-            <img src="<%- article.urlToImage %>" alt="<%- article.title %>">
-            <h2><%- article.title %></h2>
-            <p><%- article.description %></p>
+          <a href="<%- article.url %>" class="news__card">
+            <div class="row each-row">
+              <div class="col-md-4">
+                <img src="<%- article.urlToImage %>" alt="<%- article.title %>" width="300px" height='240px'>
+              </div>
+              <div class='col-md-8'>
+                <h2><%- article.title %></h2>
+                <p><%- article.description %></p>
+              </div>
+            </div>
           </a>
           <% }) %>
           <% } else { %>
@@ -83,9 +90,15 @@
           <% if(sports != null) { %>
           <% sports.forEach(function(article, index) { %>
           <a href="<%- article.url %>" class="news__card" width="150" height="150">
-            <img src="<%- article.urlToImage %>" alt="<%- article.title %>">
-            <h2><%- article.title %></h2>
-            <p><%- article.description %></p>
+            <div class="row each-row">
+              <div class="col-md-4">
+                <img src="<%- article.urlToImage %>" alt="<%- article.title %>" width="300px" height='240px'>
+              </div>
+              <div class='col-md-8'>
+                <h2><%- article.title %></h2>
+                <p><%- article.description %></p>
+              </div>
+            </div>
           </a>
           <% }) %>
           <% } else { %>
@@ -96,9 +109,15 @@
           <% if(tech != null) { %>
           <% tech.forEach(function(article, index) { %>
           <a href="<%- article.url %>" class="news__card" width="150" height="150">
-            <img src="<%- article.urlToImage %>" alt="<%- article.title %>">
-            <h2><%- article.title %></h2>
-            <p><%- article.description %></p>
+            <div class="row each-row">
+              <div class="col-md-4">
+                <img src="<%- article.urlToImage %>" alt="<%- article.title %>" width="300px" height='240px'>
+              </div>
+              <div class='col-md-8'>
+                <h2><%- article.title %></h2>
+                <p><%- article.description %></p>
+              </div>
+            </div>
           </a>
           <% }) %>
           <% } else { %>
@@ -109,9 +128,15 @@
           <% if(business != null) { %>
           <% business.forEach(function(article, index) { %>
           <a href="<%- article.url %>" class="news__card" width="150" height="150">
-            <img src="<%- article.urlToImage %>" alt="<%- article.title %>">
-            <h2><%- article.title %></h2>
-            <p><%- article.description %></p>
+            <div class="row each-row">
+              <div class="col-md-4">
+                <img src="<%- article.urlToImage %>" alt="<%- article.title %>" width="300px" height='240px'>
+              </div>
+              <div class='col-md-8'>
+                <h2><%- article.title %></h2>
+                <p><%- article.description %></p>
+              </div>
+            </div>
           </a>
           <% }) %>
           <% } else { %>
@@ -122,9 +147,15 @@
           <% if(health != null) { %>
           <% health.forEach(function(article, index) { %>
           <a href="<%- article.url %>" class="news__card" width="150" height="150">
-            <img src="<%- article.urlToImage %>" alt="<%- article.title %>">
-            <h2><%- article.title %></h2>
-            <p><%- article.description %></p>
+            <div class="row each-row">
+              <div class="col-md-4">
+                <img src="<%- article.urlToImage %>" alt="<%- article.title %>" width="300px" height='240px'>
+              </div>
+              <div class='col-md-8'>
+                <h2><%- article.title %></h2>
+                <p><%- article.description %></p>
+              </div>
+            </div>
           </a>
           <% }) %>
           <% } else { %>
@@ -137,7 +168,7 @@
 
   </section>
   <section id="about">
-
+    <h1>Binary Beast 01</h1>
   </section>
 </body>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
