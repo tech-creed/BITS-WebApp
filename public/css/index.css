@@ -1,7 +1,8 @@
-#home{
+#home {
   background: url("/img/index/bg.jpeg") no-repeat center center /cover;
 }
-.main-index{
+
+.main-index {
   padding: 130px 80px 130px 80px;
   display: flex;
   align-self: center;
@@ -9,29 +10,33 @@
   justify-content: space-around;
 }
 
-.main-index div:nth-child(1){
+.main-index div:nth-child(1) {
   padding: 50px;
   background-color: rgba(0, 0, 0, 0.3);
 }
 
-.main-index div:nth-child(1) a{
+.main-index div:nth-child(1) a {
   color: white;
   background: #17418a;
   background: -webkit-linear-gradient(45deg, #17418a, #64c3ed);
   background: linear-gradient(45deg, #17418a, #64c3ed);
 }
-.main-index div:nth-child(1) a:hover{
+
+.main-index div:nth-child(1) a:hover {
   background: -webkit-linear-gradient(90deg, #17418a, #64c3ed);
   background: linear-gradient(90deg, #17418a, #64c3ed);
 }
-.main-index div:nth-child(1) div{
+
+.main-index div:nth-child(1) div {
   display: flex;
   justify-content: space-around;
 }
-.main-index div:nth-child(1) h1{
+
+.main-index div:nth-child(1) h1 {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
-.err-msg{
+
+.err-msg {
   text-align: center;
   color: red;
 }

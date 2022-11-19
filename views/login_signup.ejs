@@ -16,47 +16,47 @@
   <%- include('../templates/index_navbar.ejs') %>
   <section id="home">
     <div class="container">
-        <div class="form">
-          <div class="btn">
-            <button class="signUpBtn">SIGN UP</button>
-            <button class="loginBtn">LOG IN</button>
+      <div class="form">
+        <div class="btn">
+          <button class="signUpBtn">SIGN UP</button>
+          <button class="loginBtn">LOG IN</button>
+        </div>
+        <form class="signUp" action="/auth/signup" method="post">
+          <div class="formGroup">
+            <input type="text" id="Name" placeholder="Name" name="name" required autocomplete="off">
           </div>
-          <form class="signUp" action="/auth/signup" method="post">
-            <div class="formGroup">
-                <input type="text" id="Name" placeholder="Name" name="name" required autocomplete="off">
-              </div>
-            <div class="formGroup">
-              <input type="email" placeholder="Email ID" name="mail" required autocomplete="off">
-            </div>
-            <div class="formGroup">
-                <input type="text" id="userName" placeholder="User Name" name="username" required autocomplete="off">
-              </div>
-            <div class="formGroup">
-              <input type="password" id="password" placeholder="Password" name="password" required autocomplete="off">
-            </div>
-            <div class="formGroup">
-              <button type="submit" class="btn2">REGISTER</button>
-            </div>
-     
-          </form>
-          <form class="login" action="/auth/login" method="post">
-            <div class="formGroup">
-              <input type="text" placeholder="Username" name="username" required autocomplete="off">
-            </div>
-            <div class="formGroup">
-              <input type="password" id="password" placeholder="Password" name="password" required autocomplete="off">
-            </div>
-            <div class="formGroup">
-              <button type="submit" class="btn2">Login</button>
-            </div>
-            </form>
-            <p class="err-msg">
-                <% if (error !=null || error!=undefined){%>
-                    Error : <%=error%>
-                <%}%>
+          <div class="formGroup">
+            <input type="email" placeholder="Email ID" name="mail" required autocomplete="off">
+          </div>
+          <div class="formGroup">
+            <input type="text" id="userName" placeholder="User Name" name="username" required autocomplete="off">
+          </div>
+          <div class="formGroup">
+            <input type="password" id="password" placeholder="Password" name="password" required autocomplete="off">
+          </div>
+          <div class="formGroup">
+            <button type="submit" class="btn2">REGISTER</button>
+          </div>
+
+        </form>
+        <form class="login" action="/auth/login" method="post">
+          <div class="formGroup">
+            <input type="text" placeholder="Username" name="username" required autocomplete="off">
+          </div>
+          <div class="formGroup">
+            <input type="password" id="password" placeholder="Password" name="password" required autocomplete="off">
+          </div>
+          <div class="formGroup">
+            <button type="submit" class="btn2">Login</button>
+          </div>
+        </form>
+        <p class="err-msg">
+          <% if (error !=null || error!=undefined){%>
+          Error : <%=error%>
+          <%}%>
             </p>
             <div style="text-align: center;">
-                <a href="/auth/reset_feedback">Feedback</a> | 
+                <a href="/auth/reset_feedback">Feedback</a> |
                 <a href="/auth/reset_feedback">Forgot Password ?</a>
             </div>
         </div>
@@ -76,7 +76,7 @@
         /* remove border after click */
         $('.signUpBtn').css({'border-style' : 'none'});
     });
-    /* Show sign Up form on button click */   
+    /* Show sign Up form on button click */
     $('.signUpBtn').click(function(){
         $('.login').hide();
         $('.signUp').show();

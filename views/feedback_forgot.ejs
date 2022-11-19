@@ -16,44 +16,44 @@
   <%- include('../templates/index_navbar.ejs') %>
   <section id="home">
     <div class="container">
-        <div class="form">
-          <div class="btn">
-            <button class="feedbackBtn">Feedback</button>
-            <button class="resetBtn">Reset Password</button>
+      <div class="form">
+        <div class="btn">
+          <button class="feedbackBtn">Feedback</button>
+          <button class="resetBtn">Reset Password</button>
+        </div>
+        <form class="feedback" action="/auth/feedback" method="post">
+          <div class="formGroup">
+            <input type="text" id="Name" placeholder="Name" name="name" required autocomplete="off">
           </div>
-          <form class="feedback" action="/auth/feedback" method="post">
-            <div class="formGroup">
-                <input type="text" id="Name" placeholder="Name" name="name" required autocomplete="off">
-              </div>
-            <div class="formGroup">
-              <input type="email" placeholder="Email ID" name="mail_id" required autocomplete="off">
-            </div>
-            <div class="formGroup">
-                <input type="text" id="Feedback" placeholder="Fedback" name="feedback" autocomplete="off">
-              </div>
-            <div class="formGroup">
-              <button type="submit" class="btn2">Sumbit</button>
-            </div>
-     
-          </form>
-          <form class="reset" action="/auth/reset" method="post">
-            <div class="formGroup">
-              <input type="text" placeholder="Username" name="username" required autocomplete="off">
-            </div>
-            <div class="formGroup">
-              <input type="email" id="e-mail" placeholder="Email ID" name="mail_id" required autocomplete="off">
-            </div>
-            <div class="formGroup">
-              <button type="submit" class="btn2">Sumbit</button>
-            </div>
-            </form>
-            <p class="err-msg">
-              <% if (error !=null || error!=undefined){%>
-                  Error : <%=error%>
-              <%}%>
+          <div class="formGroup">
+            <input type="email" placeholder="Email ID" name="mail_id" required autocomplete="off">
+          </div>
+          <div class="formGroup">
+            <input type="text" id="Feedback" placeholder="Fedback" name="feedback" autocomplete="off">
+          </div>
+          <div class="formGroup">
+            <button type="submit" class="btn2">Sumbit</button>
+          </div>
+
+        </form>
+        <form class="reset" action="/auth/reset" method="post">
+          <div class="formGroup">
+            <input type="text" placeholder="Username" name="username" required autocomplete="off">
+          </div>
+          <div class="formGroup">
+            <input type="email" id="e-mail" placeholder="Email ID" name="mail_id" required autocomplete="off">
+          </div>
+          <div class="formGroup">
+            <button type="submit" class="btn2">Sumbit</button>
+          </div>
+        </form>
+        <p class="err-msg">
+          <% if (error !=null || error!=undefined){%>
+          Error : <%=error%>
+          <%}%>
             </p>
             <div style="text-align: center;">
-                <a href="/auth/login_signup">Register ?</a> | 
+                <a href="/auth/login_signup">Register ?</a> |
                 <a href="/auth/login_signup">Already User ?</a>
             </div>
         </div>
@@ -74,7 +74,7 @@
         /* remove border after click */
         $('.resetBtn').css({'border-style' : 'none'});
     });
-    /* Show sign Up form on button click */   
+    /* Show sign Up form on button click */
     $('.resetBtn').click(function(){
         $('.feedback').hide();
         $('.reset').show();

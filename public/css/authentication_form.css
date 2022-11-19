@@ -1,90 +1,102 @@
  /* align items center vertically and horizontally  */
- .container{
-    display: flex;
-    justify-content: center;
-    align-items:center !important;
-    height: 100vh;
-  }
-  .form{
-    width: 350px;
-    height: 450px;
-    background-color: rgba(41, 39, 39, 0.7);
-    box-shadow: 0 5px 30px black;
-  }
-  .btn button {
-    padding: 3px;
-    margin: 30px 0px 40px 30px;
-    border-style: none;
-    background-color: transparent;
-    color: beige;
-    font-size: 18px;
-    font-weight: 550;
-  }
-  .formGroup{
-    display: flex;
-    justify-content: center;
-  }
-  .formGroup input{
-    border: none;
-    width: 80%;
-    border-bottom: 2px solid white;
-    padding: 10px;
-    margin-bottom: 20px;
-    font-size: 14px;
-    font-weight: bold;
-    background-color: transparent;
-    color: white;
-  }
-  input:focus {
-    outline: none !important;
-    border-bottom: 2px solid #17418a;
-    font-size: 17px;
-    font-weight: bold;
-    color: white;
-  }
-  ::placeholder {
-    color: white;
-  }
-  .checkBox{
-    display: flex;
-    justify-content: center;
-    margin: 16px!important;
-  }
-   
-  #checkbox{
-    margin-right: 10px;
-    height: 15px;
-    width: 15px;
-  }
-  .text{
-    color: rgb(199, 197, 197);
-    font-size: 13px;
-  }
-  .btn2{
-    padding: 10px;
-    width: 150px;
-    border-radius: 20px;
-    background-color: #17418a;
-    border-style: none;
-    color: white;
-    font-weight: 600;
-  }
-  .btn2:hover{
-    background-color: #17418a;
-  }
-  .btn button:hover{
-    border-bottom: 2px solid #64c3ed;
-  }
-   
-  /* hide signup form */
-  .login{
-    display: none;
-  }
-   
-  /* Login form code */
-  .login{
-    margin-top: 40px;
-  }
-  .login .checkBox{
-    margin-top: 30px !important;
-  }
+ .container {
+   display: flex;
+   justify-content: center;
+   align-items: center !important;
+   height: 100vh;
+ }
+
+ .form {
+   width: 350px;
+   height: 450px;
+   background-color: rgba(41, 39, 39, 0.7);
+   box-shadow: 0 5px 30px black;
+ }
+
+ .btn button {
+   padding: 3px;
+   margin: 30px 0px 40px 30px;
+   border-style: none;
+   background-color: transparent;
+   color: beige;
+   font-size: 18px;
+   font-weight: 550;
+ }
+
+ .formGroup {
+   display: flex;
+   justify-content: center;
+ }
+
+ .formGroup input {
+   border: none;
+   width: 80%;
+   border-bottom: 2px solid white;
+   padding: 10px;
+   margin-bottom: 20px;
+   font-size: 14px;
+   font-weight: bold;
+   background-color: transparent;
+   color: white;
+ }
+
+ input:focus {
+   outline: none !important;
+   border-bottom: 2px solid #17418a;
+   font-size: 17px;
+   font-weight: bold;
+   color: white;
+ }
+
+ ::placeholder {
+   color: white;
+ }
+
+ .checkBox {
+   display: flex;
+   justify-content: center;
+   margin: 16px !important;
+ }
+
+ #checkbox {
+   margin-right: 10px;
+   height: 15px;
+   width: 15px;
+ }
+
+ .text {
+   color: rgb(199, 197, 197);
+   font-size: 13px;
+ }
+
+ .btn2 {
+   padding: 10px;
+   width: 150px;
+   border-radius: 20px;
+   background-color: #17418a;
+   border-style: none;
+   color: white;
+   font-weight: 600;
+ }
+
+ .btn2:hover {
+   background-color: #17418a;
+ }
+
+ .btn button:hover {
+   border-bottom: 2px solid #64c3ed;
+ }
+
+ /* hide signup form */
+ .login {
+   display: none;
+ }
+
+ /* Login form code */
+ .login {
+   margin-top: 40px;
+ }
+
+ .login .checkBox {
+   margin-top: 30px !important;
+ }

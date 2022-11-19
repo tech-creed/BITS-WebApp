@@ -43,7 +43,7 @@ mongo.connect(ConnectMongoDB, {
 
 // Routering operations
 app.use('/', newsRouter) //News Route
-app.use('/article', newsRouter) //single Article Route
+// app.use('/article', newsRouter) //single Article Route
 
 app.use('/auth', AuthenticationRoute) // Authentication Route
 
