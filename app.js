@@ -5,7 +5,11 @@ const cookieParser = require("cookie-parser")
 
 //Routers
 const AuthenticationRoute = require('./routers/authentication.js')
+<<<<<<< HEAD
 const IndexRoute = require('./routers/index_news.js')
+=======
+const newsRouter = require('./routers/newsRouter.js')
+>>>>>>> 64d5144c268445e3c96d6e644561c3184c8e68bc
 //--------------------------------------------------------//
 //creating a server
 const app = express()
