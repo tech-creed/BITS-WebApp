@@ -24,7 +24,7 @@ transporter.verify(function(error, success) {
 });
 
 const SendResetLink = async (mailto, tmpid, tmptoken, userid, tmpname) => {
-  var redirect_link = 'http://localhost:8888/auth/reset_password/' + tmpid + '/' + tmptoken + '/' + userid;
+  var redirect_link = 'https://bits-e-news.herokuapp.com/auth/reset_password/' + tmpid + '/' + tmptoken + '/' + userid;
   let info = await transporter.sendMail({
     from: 'binarybeast.coders@gmail.com',
     to: mailto,
@@ -99,21 +99,6 @@ const ResetFeedbackGet = (req, res) => {
   res.render("feedback_forgot", {
     error: null
   });
-}
-const Dashboard = async (req, res) => {
-  if (req.cookies.credLogin) {
-    const cookie_id = jwt.verify(req.cookies.credLogin, "!d0cdc9$6df%58!@b!492*%^fd!731443e@66b#*3714d*9#*42766*4aa38f55b0bd!e5a33%c8%7f7@b0f");
-    if (cookie_id) {
-      const user = await User.findOne({
-        _id: cookie_id.id
-      }).lean();
-      res.render('dashboard', {
-        userName: user['name']
-      })
-    }
-  } else {
-    res.redirect('/auth/login')
-  }
 }
 
 // POST Auth controller
@@ -253,7 +238,6 @@ module.exports = {
   SignupPost,
   AuthLogout,
   ResetFeedbackGet,
-  Dashboard,
   PasswordResetPost,
   FeedbackPost,
   ChangePasswordPost,

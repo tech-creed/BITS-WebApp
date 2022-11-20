@@ -14,6 +14,18 @@ const UserSchema = new mongo.Schema({
     type: String,
     required: true
   },
+  lat:{
+    type: String,
+    required: true
+  },
+  long:{
+    type: String,
+    required: true
+  },
+  category:{
+    type: String,
+    required: true
+  },
   password: {
     type: String,
     required: true

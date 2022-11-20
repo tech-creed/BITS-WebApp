@@ -49,11 +49,11 @@ const SearchPost = async (req, res) => {
     let search = req.body.search
   try {
     const searchResult = await getEverything(search)
-    res.render('', {
+    res.render('search', {
       articles: searchResult.articles
     })
   } catch (err) {
-    res.render('', {
+    res.render('search', {
         articles: null
       })
       console.log(err)
