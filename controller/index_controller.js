@@ -35,8 +35,8 @@ const HeadLineGet = async (req, res) => {
       } catch (err) {
           console.log(err);
           res.render('index', {
-            government: null,
-            environment: null,
+            general: null,
+            sports: null,
             tech: null,
             business: null,
             health: null
