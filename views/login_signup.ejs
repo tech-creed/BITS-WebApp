@@ -33,6 +33,13 @@
           </div>
           <div class="formGroup">
             <input type="password" id="password" placeholder="Password" name="password" required autocomplete="off">
+          </div>  
+          <div class="formGroup">
+            <input type="text" id="category" placeholder="Category (,)Seperated" name="category" required autocomplete="off">
+          </div>
+          <div class="formGroup">
+            <input hidden type="text" id="lat" placeholder="Latitude" name="lat" required autocomplete="off">
+            <input hidden type="text" id="long" placeholder="Longitude" name="long" required autocomplete="off">
           </div>
           <div class="formGroup">
             <button type="submit" class="btn2">REGISTER</button>
@@ -68,6 +75,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="/js/index_navbar.js"></script>
 <script>
+  window.alert('Allow Location to get your location news Automatically')
     $('.loginBtn').click(function(){
         $('.login').show();
         $('.signUp').hide();
@@ -85,5 +93,17 @@
         /* remove border after click */
         $('.loginBtn').css({'border-style' : 'none'});
     });
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+    }
+    var latVar = document.getElementById("lat");
+    var longVar = document.getElementById("long");
+
+    function showPosition(position) {
+      console.log(position)
+      latVar.value = position.coords.latitude;
+      longVar.value = position.coords.longitude;
+    }
 </script>
 </html>

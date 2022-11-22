@@ -14,14 +14,10 @@ GEO_API = '2f7641abe62841138b210f1fd82926ad'
 
 const newsapi = new NewsAPI(`${API_KEY}`);
 const options = {
-    provider: 'google',
-    // Optional depending on the providers
-    fetch: customFetchImplementation,
-    apiKey: `${GEO_API}`, // OpenCage
-    formatter: null //
+    provider: 'opencage',
+    apiKey: `${GEO_API}`,
   };
 const geocoder = NodeGeocoder(options);
-
 
 const getTopHeadlinesof = (field) => {
   return newsapi.v2.topHeadlines({
@@ -35,12 +31,27 @@ const getEverything = (query) => {
     language: "en",
   });
 };
+const getHomeTown = async (lat,long) => {
+    const res = await geocoder.reverse({ lat: lat, lon: long });
+    return res
+}
 
-// test page
-const Test = async (req, res) => {
-   
+// Dashboard get page
+const Dashboard = async (req, res) => {
+    if (req.cookies.credLogin) {
+        const cookie_id = jwt.verify(req.cookies.credLogin, "!d0cdc9$6df%58!@b!492*%^fd!731443e@66b#*3714d*9#*42766*4aa38f55b0bd!e5a33%c8%7f7@b0f");
+        if (cookie_id) {
+          const user = await User.findOne({_id: cookie_id.id}).lean();
+          console.log(user)
+          getHomeTown(user['lat'],user['long']).then((responce)=>{
+              console.log(responce)
+          })
+        }
+      } else {
+        res.redirect('/auth/login_signup')
+      }
 }
 
 module.exports = {
-    
+    Dashboard
 }
