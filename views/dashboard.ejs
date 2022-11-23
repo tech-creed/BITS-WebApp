@@ -15,7 +15,66 @@
 <body>
   <%- include('../templates/index_navbar.ejs') %>
   <section id="home">
-    
+    <div class="tile">
+      <ul class="nav nav-tabs nav-justified sub-navbar" role="tablist">
+        <div class="slider"></div>
+        <li class="nav-item">
+          <a class="nav-link active" id="my-home-tab" data-toggle="tab" href="#my-home" role="tab" aria-controls="my-home" aria-selected="true">Your Location</a>
+        </li>
+      </ul>
+      <h1>Your Location NEWS</h1>
+      <% locationNews.articles.forEach(function(article, index) { %>
+        <a href="<%- article.url %>" class="news__card">
+          <div class="row each-row">
+            <div class="col-md-4">
+              <img src="<%- article.urlToImage %>" alt="<%- article.title %>" width="300px" height='240px'>
+            </div>
+            <div class='col-md-8'>
+              <h2><%- article.title %></h2>
+              <p><%- article.description %></p>
+            </div>
+          </div>
+        </a>
+      <% }) %>
+    </div>
+
+    <div class="tile" id="service">
+      <ul class="nav nav-tabs nav-justified sub-navbar" role="tablist">
+        <div class="slider"></div>
+        <li class="nav-item">
+          <a class="nav-link active" id="<%- category[0]%>-tab" data-toggle="tab" href="#<%- category[0]%>" role="tab" aria-controls="<%- category[0]%>" aria-selected="true"><%- category[0]%></a>
+        </li>
+        <% for(var i=1; i < category.length; i++) { %>
+        <li class="nav-item">
+          <a class="nav-link" id="<%- category[i]%>-tab" data-toggle="tab" href="#<%- category[i]%>" role="tab" aria-controls="<%- category[i]%>" aria-selected="true"><%- category[i]%></a>
+        </li>
+        <% } %>
+      </ul>
+      <div class="tab-content">
+        <% for(var i=0; i < category.length; i++) { %>
+          <div class="tab-pane fade show active" id="<%- category[i]%>" role="tabpanel" aria-labelledby="<%- category[i]%>-tab">
+          <% if(categoryList[category[i]] != null) { %>
+          <% categoryList[category[i]].articles.forEach(function(article, index) { %>
+          <a href="<%- article.url %>" class="news__card">
+            <div class="row each-row">
+              <div class="col-md-4">
+                <img src="<%- article.urlToImage %>" alt="<%- article.title %>" width="300px" height='240px'>
+              </div>
+              <div class='col-md-8'>
+                <h2><%- article.title %></h2>
+                <p><%- article.description %></p>
+              </div>
+            </div>
+          </a>
+          <% }) %>
+          <% } else { %>
+          No posts found.
+          <% } %>
+        </div>
+      <% } %>
+      </div>
+    </div>
+  </div>
   </section>
 </body>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

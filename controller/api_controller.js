@@ -48,7 +48,9 @@ const Login = async (req, res) => {
     } else {
       return "Password Incorrect"
     }
+  }
 }
+
 const Signup = async (req, res) => {
   req.body["password"] = await bcrypt.hash(req.body["password"], 12);
   var newUser = new User(req.body);
@@ -93,7 +95,7 @@ const SentimentAnalysis = async (req, res) => {
         const clientSentiment = new NLPCloudClient('distilbert-base-uncased-finetuned-sst-2-english',`${NLP_API}`)
         clientSentiment.sentiment(req.params['text']).then(function (sentimentResponse) {
           return sentimentResponse.data, emotionResponse.data;
-        }
+        })
     }).catch(function (err) {
       return err;
     });

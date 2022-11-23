@@ -30,6 +30,7 @@ const getTopHeadlinesof = (field) => {
 };
 const getEverything = (query) => {
   return newsapi.v2.everything({
+    pageSize: 10,
     q: query,
     language: "en",
   });
@@ -66,47 +67,22 @@ const Dashboard = async (req, res) => {
             const weatherDataResponse =await getWeather(user['lat'],user['long'])
             // location news fetching
             getHomeTown(user['lat'],user['long']).then(async(response)=>{
-                if(response[0].county != undefined){
-                  var homeNews = await getEverything(response[0].county)
-                  res.render('dashboard',{categories:categoryArray,
-                    categoryList:categoryList,
-                    locationNews:homeNews,
-                    weatherData: weatherDataResponse.data
-                  })
-                }else if(response[0].city != undefined){
-                  var homeNews = await getEverything(response[0].city)
-                  res.render('dashboard',{categories:categoryArray,
-                    categoryList:categoryList,
-                    locationNews:homeNews,
-                    weatherData: weatherDataResponse.data
-                  })
-                }else if(response[0].state != undefined){
-                  var homeNews = await getEverything(response[0].state)
-                  res.render('dashboard',{categories:categoryArray,
-                    categoryList:categoryList,
-                    locationNews:homeNews,
-                    weatherData: weatherDataResponse.data
-                  })
-                }else if(response[0].country != undefined){
-                  var homeNews = await getEverything(response[0].country)
-                  res.render('dashboard',{categories:categoryArray,
-                    categoryList:categoryList,
-                    locationNews:homeNews,
-                    weatherData: weatherDataResponse.data
-                  })
-                }else{
-                  var homeNews = await getTopHeadlinesof('general')
-                  res.render('dashboard',{categories:categoryArray,
-                    categoryList:categoryList,
-                    locationNews:homeNews,
-                    weatherData: null
-                  })
-                }
-                })
+              var homeNews = await getEverything(weatherDataResponse.data.name)
+              res.render('dashboard',{categories:categoryArray,
+                category: Object.keys(categoryList),
+                categoryList:categoryList,
+                locationNews:homeNews,
+                weatherData: weatherDataResponse.data
+              })
+            })
           }else{
-            var homeNews = await getTopHeadlinesof('general')
+            var homeNews = await getTopHeadlinesof('India')
+            res.render('dashboard',{categories:categoryArray,
+              categoryList:categoryList,
+              locationNews:homeNews,
+              weatherData: null
+            })
           }
-
         }else {
             res.redirect('/auth/login_signup')
         }
