@@ -1,7 +1,6 @@
 const NewsAPI = require("newsapi");
 
 API_KEY = '4bfaa7ce565d4d15b106d3b902982160'
-API_KEY = 'fd0bf2b6a6454faf892f3accdd3243ed'
 const newsapi = new NewsAPI(`${API_KEY}`);
 
 const getTopHeadlinesof = (field) => {
