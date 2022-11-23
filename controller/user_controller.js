@@ -5,6 +5,8 @@ const Reset = require('../schema/reset.js')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 
+const axios = require('axios')
+
 const NewsAPI = require("newsapi");
 const NodeGeocoder = require('node-geocoder');
 
@@ -33,9 +35,17 @@ const getEverything = (query) => {
   });
 };
 const getHomeTown = (lat,long) => {
-    const res = await geocoder.reverse({ lat: lat, lon: long });
+    const res = geocoder.reverse({ lat: lat, lon: long })
     return res
 }
+
+// weather api
+const getWeather = (lat,lon)=>{
+  const endpoint = "https://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&appid="+WEATHER_API+"&units=metric"
+  const weatherDataReport = axios.get(endpoint)
+  return weatherDataReport
+}
+
 
 // Dashboard get page
 const Dashboard = async (req, res) => {
@@ -43,32 +53,64 @@ const Dashboard = async (req, res) => {
         const cookie_id = jwt.verify(req.cookies.credLogin, "!d0cdc9$6df%58!@b!492*%^fd!731443e@66b#*3714d*9#*42766*4aa38f55b0bd!e5a33%c8%7f7@b0f");
         if (cookie_id) {
           const user = await User.findOne({_id: cookie_id.id}).lean();
+          // category news fetching process
           const categories = user.category
           const categoryArray = categories.split(",")
           var categoryList = {}
           for (var i=0;i<categoryArray.length;i++){
             var categoryNews = await getEverything(categoryArray[i])
-            categoryList[categoryArray[i].toString()] = categoryNews
+            categoryList[categoryArray[i]] = categoryNews
           }
           if(parseInt(user['lat']) != 0 && parseInt(user['long']) != 0){
-            getHomeTown(user['lat'],user['long']).then(async(responce)=>{
-                if(responce['county'] != null){
-                  var homeNews = await getEverything(responce['county'])
-                }else if(responce['city'] != null){
-                  var homeNews = await getEverything(responce['city'])
-                }else if(responce['state'] != null){
-                  var homeNews = await getEverything(responce['state'])
+            // weather news fetching
+            const weatherDataResponse =await getWeather(user['lat'],user['long'])
+            // location news fetching
+            getHomeTown(user['lat'],user['long']).then(async(response)=>{
+                if(response[0].county != undefined){
+                  var homeNews = await getEverything(response[0].county)
+                  res.render('dashboard',{categories:categoryArray,
+                    categoryList:categoryList,
+                    locationNews:homeNews,
+                    weatherData: weatherDataResponse.data
+                  })
+                }else if(response[0].city != undefined){
+                  var homeNews = await getEverything(response[0].city)
+                  res.render('dashboard',{categories:categoryArray,
+                    categoryList:categoryList,
+                    locationNews:homeNews,
+                    weatherData: weatherDataResponse.data
+                  })
+                }else if(response[0].state != undefined){
+                  var homeNews = await getEverything(response[0].state)
+                  res.render('dashboard',{categories:categoryArray,
+                    categoryList:categoryList,
+                    locationNews:homeNews,
+                    weatherData: weatherDataResponse.data
+                  })
+                }else if(response[0].country != undefined){
+                  var homeNews = await getEverything(response[0].country)
+                  res.render('dashboard',{categories:categoryArray,
+                    categoryList:categoryList,
+                    locationNews:homeNews,
+                    weatherData: weatherDataResponse.data
+                  })
                 }else{
-                  var homeNews = await getEverything(responce['country'])
+                  var homeNews = await getTopHeadlinesof('general')
+                  res.render('dashboard',{categories:categoryArray,
+                    categoryList:categoryList,
+                    locationNews:homeNews,
+                    weatherData: null
+                  })
                 }
-              })
-            }else{
-              var homeNews = await getTopHeadlinesof('general')
-            }
+                })
+          }else{
+            var homeNews = await getTopHeadlinesof('general')
+          }
+
+        }else {
+            res.redirect('/auth/login_signup')
         }
-      } else {
-        res.redirect('/auth/login_signup')
-      }
+    }
 }
 
 module.exports = {
