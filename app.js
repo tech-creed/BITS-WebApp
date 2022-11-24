@@ -31,7 +31,7 @@ app.use(express.urlencoded({
 
 // mongodb uri to connect with database
 const ConnectMongoDB = "mongodb+srv://Binary-Beast-01:Binary-Beast-01@cluster-01.tja3ztc.mongodb.net/?retryWrites=true&w=majority"
-// const PORT = process.env.PORT || 8888
+const PORT = process.env.PORT || 8888
 
 //mongo db connection
 mongo.connect(ConnectMongoDB, {
@@ -40,7 +40,7 @@ mongo.connect(ConnectMongoDB, {
 }).then((res) => {
   console.log('db Connection................ok')
   //listen for a server request
-  app.listen(3000, () => {
+  app.listen(PORT, () => {
     console.log('Main Server.................ok')
   });
 }).catch((err) => console.log(err))
@@ -51,11 +51,10 @@ app.use('/auth', AuthenticationRoute) // Authentication Route
 
 app.use('/', IndexRoute) //Index Route
 
-app.use('/user', UserRoute) //Index Route
+app.use('/user', UserRoute) //User Route
 
 app.use('/api', APIRoute) //API Route
 
-// app.use('/article', newsRouter) //single Article Route
 
 // 404 Page
 app.use((req, res) => {
