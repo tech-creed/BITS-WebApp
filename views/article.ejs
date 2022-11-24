@@ -15,10 +15,80 @@
 <body>
   <%- include('../templates/index_navbar.ejs') %>
   <section id="home">
+    <ul class="nav nav-tabs nav-justified sub-navbar" role="tablist">
+      <div class="slider"></div>
+      <li class="nav-item">
+        <a class="nav-link active" id="my-home-tab" data-toggle="tab" href="#my-article" role="tab" aria-controls="my-home" aria-selected="true">NEWS Analysis</a>
+      </li>
+    </ul>
     <div class="container">
+      <a class="news__card">
+        <div class="row each-row" style="flex-wrap: nowrap;margin-top: -330px;">
+          <div class="col-md-4">
+            <img src="<%- Articaldata.urlToImage %>" alt="<%- Articaldata.title %>" width="300px" height='240px'>
+          </div>
+          <a href="<%- Articaldata.url %>">
+            <div class='col-md-12'>
+              <h2><%- Articaldata.title %></h2>
+              <p><%- Articaldata.description %></p>
+            </div>
+          </a>
+        </div>
+      </a>
+    </div>
+    <hr />
+    <div style="margin-top: -390px;padding: 0px 42px;display: flex;justify-content: space-around;">
+      <h4>publishedAt :  <%- Articaldata.publishedAt %></h4>
+      <h4>Sorce : <%- Articaldata.source.name %></h4>
+      <h4>Author :  <%- Articaldata.author %></h4>
+    </div>
+    <hr />
+    <div class="row text-analysis">
+      <div class="col-md-6">
+        <h2>NEWS Summarization</h2>
+        <p><%-summarizationNews.summary_text%></p>
+      </div>
+      <div class="col-md-6">
+        <h2>NEWS Sentiment</h2>
+        <% if(sentimentOfTheNews.scored_labels[0].label === "POSITIVE"){ %>
+          <p style="color: green;"><%-sentimentOfTheNews.scored_labels[0].label%> | Score : <%-sentimentOfTheNews.scored_labels[0].score%></p>
+          <% } else { %>
+            <p style="color: red;"><%-sentimentOfTheNews.scored_labels[0].label%> | Score : <%-sentimentOfTheNews.scored_labels[0].score%></p>
+          <% } %>
+      </div>
       
     </div>
   </section>
+  <div class="youtube-ariticle-analysis">
+    <ul class="nav nav-tabs nav-justified sub-navbar" role="tablist">
+      <div class="slider"></div>
+      <li class="nav-item">
+        <a class="nav-link active" id="my-home-tab" data-toggle="tab" href="#my-tube" role="tab" aria-controls="my-home" aria-selected="true">Video NEWS</a>
+      </li>
+    </ul>
+    <div class="video-div" style="padding: 15px;">
+      <% if(youtubeVideoData.items.length != 0) { %>
+        <% youtubeVideoData.items.forEach(function(video, index) { %>
+            <a class="news__card">
+              <div class="row each-row" style="flex-wrap: nowrap;">
+                <div class="col-md-4">
+                  <img src="<%- video.snippet.thumbnails.high.url %>" alt="<%- video.snippet.title %>" width="300px" height='240px'>
+                </div>
+                <a href="https://www.youtube.com/watch?v=<%- video.id.videoId %>">
+                  <div class='col-md-12'>
+                    <h2><%- video.snippet.title %></h2>
+                    <p><%- video.snippet.description %></p>
+                    <p><%- video.snippet.description %></p>
+                  </div>
+                </a>
+              </div>
+            </a>
+        <% }) %>
+        <% } else { %>
+        No posts found.
+        <% } %>
+    </div>
+  </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>

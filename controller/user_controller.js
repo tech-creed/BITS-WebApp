@@ -133,7 +133,8 @@ const Dashboard = async (req, res) => {
 
 const Article = async (req, res) => {
     Articaldata = JSON.parse(req.body['article'])
-    const endpoint = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=15&order=relevance&q="+data.title+"&key="+YOUTUBE_API
+    //console.log(Articaldata)
+    const endpoint = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=15&order=relevance&q="+Articaldata.title+"&key="+YOUTUBE_API
     fetch(endpoint).then(res => res.json()).then(youtubeVideoData => {
       const client = new NLPCloudClient('bart-large-cnn',`${NLP_API_SUMM}`, true)
       client.summarization(Articaldata.content).then(function (summarizationNews) {

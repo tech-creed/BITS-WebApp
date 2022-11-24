@@ -73,3 +73,9 @@
 .weather-div p{
   font-size: 19px;
 }
+.text-analysis{
+  margin-top: 60px;padding: 0px 42px;display: flex;justify-content: space-around;
+}
+.text-analysis p{
+  font-size: 19px;
+}
