@@ -118,6 +118,7 @@ const SignupPost = async (req, res) => {
   })
 }
 const LoginPost = async (req, res) => {
+  console.log(req.body)
   userFind = req.body
   const user = await User.findOne({
     username: userFind.username

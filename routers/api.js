@@ -12,7 +12,6 @@ router.post("/signup", APIController.Signup)
 router.get("/news/headlines", APIController.Headlines)
 router.get("/news/category/:query", APIController.CategoryHeadlines)
 router.get("/news/search/:query", APIController.Search)
-router.get("/news/article/:id", APIController.Article)
 router.get("/news/date/:from/:to", APIController.ByDate)
 
 // API GEO Location routes

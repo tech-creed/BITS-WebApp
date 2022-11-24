@@ -40,12 +40,15 @@ const getEverything = (query) => {
 // Authentication
 const Login = async (req, res) => {
   userFind = req.body
-  const user = await User.findOne({username: userFind.username}).lean()
+  const user = await User.findOne({
+    username: userFind.username
+  }).lean()
   if (!user) {
     return res.send("Username does Not Exist")
   } else {
     if (await bcrypt.compare(userFind.password, user.password)) {
-      return res.json(user);
+      var data = {"user":user, "message":'Login Sucessful'}
+      return res.json(data);
     } else {
       return res.send("Password Incorrect")
     }
@@ -56,7 +59,8 @@ const Signup = async (req, res) => {
   req.body["password"] = await bcrypt.hash(req.body["password"], 12);
   var newUser = new User(req.body);
   newUser.save().then((result) => {
-    return res.json(result);
+    var data = {"user":result, "message":'Signup Sucessful'}
+    return res.json(data);
   }).catch((error) => {
     if (error.code == 11000) {
       return res.send('Username Already Exist');
