@@ -27,8 +27,10 @@ Using the pre-trained CNN models the NEWS is analysist like(Summariztion, Sentim
 
 ## Our Web Application Demo
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/65155327/203729448-84ac182d-1241-489b-a0f3-c29069cb4e06.png" alt="img"/>
-  <img height='300px' src="https://user-images.githubusercontent.com/65155327/203732609-c5fd2c61-60f9-4d09-9c6f-0305a7917fef.png" alt="img"/>
+  <img height='380px' src="https://user-images.githubusercontent.com/65155327/203729448-84ac182d-1241-489b-a0f3-c29069cb4e06.png" alt="img"/>
+  <img height='380px' src="https://user-images.githubusercontent.com/65155327/203820209-ed2d0fa1-6768-4433-8e05-b8e17ea9f5d5.png" alt="img"/>
+  <img height='380px' src="https://user-images.githubusercontent.com/65155327/203732609-c5fd2c61-60f9-4d09-9c6f-0305a7917fef.png" alt="img"/>
+  <img height='380px' src="https://user-images.githubusercontent.com/65155327/203820632-6b5a8736-102b-469c-806e-bd3ef7934bfe.png" alt="img"/>
 </p>
 
 #### Youtube Demo Link - 
