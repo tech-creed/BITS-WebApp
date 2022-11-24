@@ -1,6 +1,8 @@
 const NewsAPI = require("newsapi");
 
 API_KEY = 'fd0bf2b6a6454faf892f3accdd3243ed'
+API_KEY = '4bfaa7ce565d4d15b106d3b902982160'
+API_KEY = 'ed42509af3e74d1c944417adf9092977'
 const newsapi = new NewsAPI(`${API_KEY}`);
 
 const getTopHeadlinesof = (field) => {
@@ -45,11 +47,11 @@ const HeadLineGet = async (req, res) => {
 
 // Search post page
 const SearchPost = async (req, res) => {
-    let search = req.body.search
+  let search = req.body.search
   try {
     const searchResult = await getEverything(search)
     res.render('search', {
-      articles: searchResult.articles
+      articles: searchResult.articles.slice(1,15)
     })
   } catch (err) {
     res.render('search', {

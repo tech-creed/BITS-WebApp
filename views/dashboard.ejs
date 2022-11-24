@@ -15,7 +15,21 @@
 <body>
   <%- include('../templates/index_navbar.ejs') %>
   <section id="home">
+    <form action="/search" method="post" style="top: 100px;position: absolute;right: 100px;z-index: 100;">
+      <input type="text" name='search'/>
+      <button type="submit">Search</button>
+    </form>
     <div class="tile">
+      <ul class="nav nav-tabs nav-justified sub-navbar" role="tablist">
+        <div class="slider"></div>
+        <li class="nav-item">
+          <a class="nav-link active" id="my-home-tab" data-toggle="tab" href="#my-home" role="tab" aria-controls="my-home" aria-selected="true">Your Weather</a>
+        </li>
+      </ul>
+      <div>
+        
+      </div>
+      <!-------------------------------------------------------------------------------->
       <ul class="nav nav-tabs nav-justified sub-navbar" role="tablist">
         <div class="slider"></div>
         <li class="nav-item">

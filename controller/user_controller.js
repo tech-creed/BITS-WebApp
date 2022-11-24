@@ -13,6 +13,8 @@ const NLPCloudClient = require('nlpcloud');
 const NodeGeocoder = require('node-geocoder');
 
 API_KEY = 'fd0bf2b6a6454faf892f3accdd3243ed'
+API_KEY = '4bfaa7ce565d4d15b106d3b902982160'
+API_KEY = 'ed42509af3e74d1c944417adf9092977'
 GEO_API = '2f7641abe62841138b210f1fd82926ad'
 WEATHER_API = '26a2c30acaaa9b66b0d51ee3c28ada69'
 NLP_API_SUMM = '1932d1c4bdfce7f45ceb0742faafabcaa1c45df1'

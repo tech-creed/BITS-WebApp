@@ -15,7 +15,31 @@
 <body>
   <%- include('../templates/index_navbar.ejs') %>
   <section id="home">
-    
+    <div class="tile" id="tile-1">
+    <% if(articles != null) { %>
+      <% articles.forEach(function(article, index) { %>
+        <form action="/user/article" method="post">
+          <input hidden type="text" name='article' value='<%- JSON.stringify(article)%>' />
+          <a class="news__card">
+            <div class="row each-row" style="flex-wrap: nowrap;">
+              <div class="col-md-4">
+                <img src="<%- article.urlToImage %>" alt="<%- article.title %>" width="300px" height='240px'>
+              </div>
+              <a href="<%- article.url %>">
+                <div class='col-md-8'>
+                  <h2><%- article.title %></h2>
+                  <p><%- article.description %></p>
+                </div>
+              </a>
+              <button type="submit">NEWS Analysis</button>
+            </div>
+          </a>
+        </form>
+      <% }) %>
+      <% } else { %>
+      No posts found.
+      <% } %>
+    </div>
   </section>
 </body>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
