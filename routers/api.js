@@ -16,7 +16,7 @@ router.get("/news/article/:id", APIController.Article)
 router.get("/news/date/:from/:to", APIController.ByDate)
 
 // API GEO Location routes
-router.get("/geo/location/:lat/:long", APIController.LatLong)
+router.get("/geo/location/:lat/:long", APIController.LatLon)
 
 // API Artificial Intelligence routes
 // Text Analysis and NLP

@@ -20,7 +20,7 @@ const options = {
   };
 const geocoder = NodeGeocoder(options);
 
-const getLocation = (lat,long) => {
+const getLocation = async(lat,long) => {
     const res = await geocoder.reverse({ lat: lat, lon: long });
     return res
 }
@@ -138,5 +138,20 @@ const YoutubeVideo = async (req, res) =>{
 }
 
 
-wmodule.exports = {
+module.exports = {
+  Login,
+  Signup,
+  Headlines,
+  CategoryHeadlines,
+  Search,
+  Article,
+  ByDate,
+  LatLon,
+  SentimentAnalysis,
+  Summarization,
+  Translation,
+  TextKeywordAnalysis,
+  LatLonWeather,
+  LocationWeather,
+  YoutubeVideo
 }
