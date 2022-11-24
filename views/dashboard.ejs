@@ -24,7 +24,7 @@
       </ul>
       <% locationNews.articles.forEach(function(article, index) { %>
         <form action="/user/article" method="post">
-          <input hidden type="text" name='article' value="<%- JSON.stringify(article)%>" />
+          <input hidden type="text" name='article' value="<%-article%>" />
           <a class="news__card">
             <div class="row each-row" style="flex-wrap: nowrap;">
               <div class="col-md-4">

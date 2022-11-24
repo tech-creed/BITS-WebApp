@@ -8,12 +8,14 @@ const jwt = require('jsonwebtoken')
 const axios = require('axios')
 
 const NewsAPI = require("newsapi");
+const NLPCloudClient = require('nlpcloud');
 const NodeGeocoder = require('node-geocoder');
 
 API_KEY = 'fd0bf2b6a6454faf892f3accdd3243ed'
 GEO_API = '2f7641abe62841138b210f1fd82926ad'
 WEATHER_API = '26a2c30acaaa9b66b0d51ee3c28ada69'
 NPL_API = 'f6139861893b450ad6edc711a716d9b482066a0d'
+YOUTUBE_API = 'AIzaSyBAzpEdLmu6iW9TiPt7CTDW7J53RzaypLI'
 
 const newsapi = new NewsAPI(`${API_KEY}`);
 const options = {
@@ -47,6 +49,50 @@ const getWeather = (lat,lon)=>{
   return weatherDataReport
 }
 
+// nlp - text analysis
+ // SentimentAnalysis for the news
+ const SentimentAnalysis = (text) => {
+   // Analysis the text for emotion and sentiment analysis
+  const client = new NLPCloudClient('distilbert-base-uncased-emotion',`${NLP_API}`)
+  client.sentiment(text).then(function (emotionResponse) {
+  const clientSentiment = new NLPCloudClient('distilbert-base-uncased-finetuned-sst-2-english',`${NLP_API}`)
+  clientSentiment.sentiment(text).then(function (sentimentResponse) {
+  var data = {"sentiment" : sentimentResponse.data, "emotion": emotionResponse.data}
+  return data
+  })
+     }).catch(function (err) {
+       console.log(err)
+     })
+ }
+
+ //summarization the content on the news
+ const Summarization = (text) => {
+   // get input as an paragraph and return the summarize the text to headline
+   const client = new NLPCloudClient('bart-large-cnn',`${NLP_API}`, true)
+   client.summarization(text).then(function (response) {
+       return response.data
+     }).catch(function (err) {
+      console.log(err)
+     });
+ }
+
+ //content Translation
+const Translation = (text,language)=>{
+  const client = new NLPCloudClient('nllb-200-3-3b','<token>')
+  client.translation(text,'en',language).then(function (response) {
+      return response.data
+    })
+    .catch(function (err) {
+      console.log(err)
+    })
+}
+
+// retrive the youtube video data
+const youtube = (query)=>{
+  const endpoint = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=15&order=relevance&q="+query+"&key="+YOUTUBE_API
+  const youtubeData = axios.get(endpoint)
+  return youtubeData.data
+}
 
 // Dashboard get page
 const Dashboard = async (req, res) => {
@@ -90,7 +136,16 @@ const Dashboard = async (req, res) => {
 }
 
 const Article = async (req, res) => {
-    console.log(req.body)
+    const youtubeData = await youtube(req.body.title)
+    const summarizationData = await Summarization(req.body.content)
+    const sentimentData = await SentimentAnalysis(req.body.title)
+    const translation = await Translation(req.body.content,"fr")
+    res.render('article',{
+      youtubeVideoData : youtubeData,
+      contentSummarization : summarizationData,
+      sentimentOfTheNews :  sentimentData,
+      contentTransulation : translation
+    })
 }
 
 module.exports = {
