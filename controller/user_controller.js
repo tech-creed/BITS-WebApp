@@ -132,18 +132,19 @@ const Dashboard = async (req, res) => {
 }
 
 const Article = async (req, res) => {
-    data = JSON.parse(req.body['article'])
+    Articaldata = JSON.parse(req.body['article'])
     const endpoint = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=15&order=relevance&q="+data.title+"&key="+YOUTUBE_API
     fetch(endpoint).then(res => res.json()).then(youtubeVideoData => {
       const client = new NLPCloudClient('bart-large-cnn',`${NLP_API_SUMM}`, true)
-      client.summarization(data.content).then(function (summarizationNews) {
+      client.summarization(Articaldata.content).then(function (summarizationNews) {
           const clientSentiment = new NLPCloudClient('distilbert-base-uncased-finetuned-sst-2-english',`${NLP_API_SENTI}`)
-          clientSentiment.sentiment(data.title).then(function (sentimentResponse) {
-            console.log(youtubeVideoData, sentimentResponse.data, summarizationNews.data)
+          clientSentiment.sentiment(Articaldata.title).then(function (sentimentResponse) {
+            //console.log(youtubeVideoData, sentimentResponse.data, summarizationNews.data)
             res.render('article',{
               youtubeVideoData : youtubeVideoData,
               sentimentOfTheNews : sentimentResponse.data,
               summarizationNews: summarizationNews.data,
+              Articaldata:Articaldata,
             })
           })
         }).catch(function (err) {
