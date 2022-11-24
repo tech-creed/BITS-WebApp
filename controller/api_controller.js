@@ -42,12 +42,12 @@ const Login = async (req, res) => {
   userFind = req.body
   const user = await User.findOne({username: userFind.username}).lean()
   if (!user) {
-    return "Username does Not Exist"
+    return res.send("Username does Not Exist")
   } else {
     if (await bcrypt.compare(userFind.password, user.password)) {
-      return user, 'Login Successful';
+      return res.json(user);
     } else {
-      return "Password Incorrect"
+      return res.send("Password Incorrect")
     }
   }
 }
@@ -56,10 +56,10 @@ const Signup = async (req, res) => {
   req.body["password"] = await bcrypt.hash(req.body["password"], 12);
   var newUser = new User(req.body);
   newUser.save().then((result) => {
-    return result, 'Signup Successful'
+    return res.json(result);
   }).catch((error) => {
     if (error.code == 11000) {
-      return 'Username Already Exist'
+      return res.send('Username Already Exist');
     }
   })
 }
@@ -70,11 +70,11 @@ const Headlines = async (req, res) => {
 }
 const CategoryHeadlines = async (req, res) => {
   const categoryNews = await getTopHeadlinesof(req.params['query'])
-  return categoryNews
+  return res.json(categoryNews)
 }
 const Search = async (req, res) => {
   const searchResult = await getEverything(req.params['query'])
-  return searchResult
+  return res.json(searchResult)
 }
 const Article = async (req, res) => {
 }
@@ -84,7 +84,7 @@ const ByDate = async (req, res) => {
 // Geo Encode
 const LatLon = async (req, res) => {
   var result = await getLocation(req.params['lat'], req.params['long']);
-  return result
+  return res.json(result);
 }
 
 
@@ -95,10 +95,11 @@ const SentimentAnalysis = async (req, res) => {
   client.sentiment(req.params['text']).then(function (emotionResponse) {
         const clientSentiment = new NLPCloudClient('distilbert-base-uncased-finetuned-sst-2-english',`${NLP_API}`)
         clientSentiment.sentiment(req.params['text']).then(function (sentimentResponse) {
-          return sentimentResponse.data, emotionResponse.data;
+          var data = {"sentiment" : sentimentResponse.data, "emotion": emotionResponse.data}
+          return res.json(data);
         })
     }).catch(function (err) {
-      return err;
+      return res.send(err);
     });
 }
 
@@ -106,9 +107,9 @@ const Summarization = async (req, res) => {
   // get input as an paragraph and return the summarize the text to headline
   const client = new NLPCloudClient('bart-large-cnn',`${NLP_API}`, true)
   client.summarization(req.params['text']).then(function (response) {
-      return response.data;
+      return res.json(response.data);
     }).catch(function (err) {
-      return err;
+      return res.send(err);
     });
 }
 const Translation = async (req, res) => {
@@ -118,10 +119,10 @@ const TextKeywordAnalysis = async (req, res) => {
   // Extract the keyword form the given text
   const client = new NLPCloudClient('finetuned-gpt-neox-20b',`${NLP_API}`, true)
   client.kwKpExtraction(req.params['text']).then(function (response) {
-      return response.data;
+      return res.json(response.data);
     })
     .catch(function (err) {
-      return err
+      return res.send(err)
     });
 }
 
