@@ -22,19 +22,24 @@
           <a class="nav-link active" id="my-home-tab" data-toggle="tab" href="#my-home" role="tab" aria-controls="my-home" aria-selected="true">Your Location</a>
         </li>
       </ul>
-      <h1>Your Location NEWS</h1>
       <% locationNews.articles.forEach(function(article, index) { %>
-        <a href="<%- article.url %>" class="news__card">
-          <div class="row each-row">
-            <div class="col-md-4">
-              <img src="<%- article.urlToImage %>" alt="<%- article.title %>" width="300px" height='240px'>
+        <form action="/user/article" method="post">
+          <input hidden type="text" name='article' value="<%- JSON.stringify(article)%>" />
+          <a class="news__card">
+            <div class="row each-row" style="flex-wrap: nowrap;">
+              <div class="col-md-4">
+                <img src="<%- article.urlToImage %>" alt="<%- article.title %>" width="300px" height='240px'>
+              </div>
+              <a href="<%- article.url %>">
+                <div class='col-md-8'>
+                  <h2><%- article.title %></h2>
+                  <p><%- article.description %></p>
+                </div>
+              </a>
+              <button type="submit">NEWS Analysis</button>
             </div>
-            <div class='col-md-8'>
-              <h2><%- article.title %></h2>
-              <p><%- article.description %></p>
-            </div>
-          </div>
-        </a>
+          </a>
+        </form>
       <% }) %>
     </div>
 
@@ -55,17 +60,23 @@
           <div class="tab-pane fade show active" id="<%- category[i]%>" role="tabpanel" aria-labelledby="<%- category[i]%>-tab">
           <% if(categoryList[category[i]] != null) { %>
           <% categoryList[category[i]].articles.forEach(function(article, index) { %>
-          <a href="<%- article.url %>" class="news__card">
-            <div class="row each-row">
-              <div class="col-md-4">
-                <img src="<%- article.urlToImage %>" alt="<%- article.title %>" width="300px" height='240px'>
-              </div>
-              <div class='col-md-8'>
-                <h2><%- article.title %></h2>
-                <p><%- article.description %></p>
-              </div>
-            </div>
-          </a>
+            <form action="/user/article" method="post">
+              <input hidden type="text" name='article' value="<%- JSON.stringify(article)%>" />
+              <a class="news__card">
+                <div class="row each-row" style="flex-wrap: nowrap;">
+                  <div class="col-md-4">
+                    <img src="<%- article.urlToImage %>" alt="<%- article.title %>" width="300px" height='240px'>
+                  </div>
+                  <a href="<%- article.url %>">
+                    <div class='col-md-8'>
+                      <h2><%- article.title %></h2>
+                      <p><%- article.description %></p>
+                    </div>
+                  </a>
+                  <button type="submit">NEWS Analysis</button>
+                </div>
+              </a>
+            </form>
           <% }) %>
           <% } else { %>
           No posts found.

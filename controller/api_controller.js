@@ -80,8 +80,6 @@ const Search = async (req, res) => {
   const searchResult = await getEverything(req.params['query'])
   return res.json(searchResult)
 }
-const Article = async (req, res) => {
-}
 const ByDate = async (req, res) => {
 }
 
@@ -149,7 +147,6 @@ module.exports = {
   Headlines,
   CategoryHeadlines,
   Search,
-  Article,
   ByDate,
   LatLon,
   SentimentAnalysis,

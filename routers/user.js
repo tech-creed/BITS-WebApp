@@ -7,4 +7,6 @@ const router = express.Router();
 // Index GET routes
 router.get("/dashboard", UserController.Dashboard)
 
+router.post("/article", UserController.Article)
+
 module.exports = router;

@@ -89,6 +89,11 @@ const Dashboard = async (req, res) => {
     }
 }
 
+const Article = async (req, res) => {
+    console.log(req.body)
+}
+
 module.exports = {
-    Dashboard
+    Dashboard,
+    Article
 }
