@@ -139,7 +139,7 @@ const Article = async (req, res) => {
       client.summarization(data.content).then(function (summarizationNews) {
           const clientSentiment = new NLPCloudClient('distilbert-base-uncased-finetuned-sst-2-english',`${NLP_API_SENTI}`)
           clientSentiment.sentiment(data.title).then(function (sentimentResponse) {
-            //console.log(youtubeVideoData, sentimentResponse.data, summarizationNews.data)
+            console.log(youtubeVideoData, sentimentResponse.data, summarizationNews.data)
             res.render('article',{
               youtubeVideoData : youtubeVideoData,
               sentimentOfTheNews : sentimentResponse.data,

@@ -59,3 +59,17 @@
 .sub-navbar{
   margin-top: 64px;
 }
+
+.weather-div{
+  padding: 25px;margin-top: 65px;display: flex;width: 100%;justify-content: space-between;
+}
+.weather-div h3{
+  color: #4bbcec;
+}
+.weather-div img{
+  background-color: #0000005e;
+  border-radius: 20px;
+}
+.weather-div p{
+  font-size: 19px;
+}

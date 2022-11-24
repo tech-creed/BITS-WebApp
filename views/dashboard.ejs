@@ -26,8 +26,32 @@
           <a class="nav-link active" id="my-home-tab" data-toggle="tab" href="#my-home" role="tab" aria-controls="my-home" aria-selected="true">Your Weather</a>
         </li>
       </ul>
-      <div>
-        
+      <div class="weather-div">
+        <img src="http://openweathermap.org/img/wn/<%-weatherData['weather'][0]['icon']%>@4x.png" alt="" srcset="">
+        <div>
+          <h3>Base Information</h3>
+          <p>Temprature : <%-weatherData['main']['temp']%></p>
+          <p>Min Temprature : <%-weatherData['main']['temp_min']%></p>
+          <p>Max Temprature : <%-weatherData['main']['temp_max']%></p>
+          <p>Pressue : <%-weatherData['main']['pressure']%></p>
+          <p>Humidity : <%-weatherData['main']['humidity']%></p>
+        </div>
+        <div>
+          <h3>Allitude</h3>
+          <p>Ground Level : <%-weatherData['main']['grnd_level']%></p>
+          <p>Sea Level : <%-weatherData['main']['sea_level']%></p>
+          <h3>Wind</h3>
+          <p>Speed : <%-weatherData['wind']['speed']%></p>
+          <p>Degree : <%-weatherData['wind']['deg']%></p>
+          <p>gust : <%-weatherData['wind']['gust']%></p>
+        </div>
+        <div>
+          <h3>Location Information</h3>
+          <p>Latitude : <%-weatherData['coord']['lat']%></p>
+          <p>Longitude : <%-weatherData['coord']['lon']%></p>
+          <p>place : <%-weatherData['name']%></p>
+          <p>timezone : <%-weatherData['timezone']%></p>
+        </div>
       </div>
       <!-------------------------------------------------------------------------------->
       <ul class="nav nav-tabs nav-justified sub-navbar" role="tablist">
