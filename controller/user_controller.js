@@ -72,7 +72,7 @@ const SentimentAnalysis = async(text) => {
  }
  //content Translation
 const Translation = async(text,language)=>{
-  const client = new NLPCloudClient('nllb-200-3-3b','<token>')
+  const client = new NLPCloudClient('nllb-200-3-3b',`${NLP_API}`)
   client.translation(text,'en',language).then(function (response) {
       return response.data
     })
