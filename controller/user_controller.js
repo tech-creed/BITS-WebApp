@@ -10,7 +10,7 @@ const axios = require('axios')
 const NewsAPI = require("newsapi");
 const NodeGeocoder = require('node-geocoder');
 
-API_KEY = '4bfaa7ce565d4d15b106d3b902982160'
+API_KEY = 'fd0bf2b6a6454faf892f3accdd3243ed'
 GEO_API = '2f7641abe62841138b210f1fd82926ad'
 WEATHER_API = '26a2c30acaaa9b66b0d51ee3c28ada69'
 NPL_API = 'f6139861893b450ad6edc711a716d9b482066a0d'

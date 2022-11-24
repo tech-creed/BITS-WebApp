@@ -8,6 +8,9 @@ const AuthenticationRoute = require('./routers/authentication.js')
 const IndexRoute = require('./routers/index_news.js')
 const UserRoute = require('./routers/user.js')
 
+const APIRoute = require('./routers/api.js')
+
+
 //--------------------------------------------------------//
 //creating a server
 const app = express()
@@ -49,6 +52,8 @@ app.use('/auth', AuthenticationRoute) // Authentication Route
 app.use('/', IndexRoute) //Index Route
 
 app.use('/user', UserRoute) //Index Route
+
+app.use('/api', APIRoute) //API Route
 
 // app.use('/article', newsRouter) //single Article Route
 

@@ -7,6 +7,7 @@ const NewsAPI = require("newsapi");
 const NodeGeocoder = require('node-geocoder');
 const NLPCloudClient = require('nlpcloud');
 
+//4bfaa7ce565d4d15b106d3b902982160
 API_KEY = 'fd0bf2b6a6454faf892f3accdd3243ed'
 GEO_API = '2f7641abe62841138b210f1fd82926ad'
 WEATHER_API = '26a2c30acaaa9b66b0d51ee3c28ada69'
