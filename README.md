@@ -46,7 +46,7 @@ Using the pre-trained CNN models the NEWS is analysist like(Summariztion, Sentim
  
 </p>
 
-#### Youtube Demo Link - 
+#### Youtube Demo Link - https://youtu.be/Fd6sIoyow1g
 
 ## Blog and API Deployment
 
