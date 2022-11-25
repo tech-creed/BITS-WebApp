@@ -17,7 +17,7 @@
     <div class="row main-index">
       <div class="col-md-7">
         <h1>E NEWS</h1>
-        <p>Electronic News aims to Provide the news for everyone on live stream content. In this technology world
+        <p style="font-size: 19px;">Electronic News aims to Provide the news for everyone on live stream content. In this technology world
           the NEWS are provided in the form of pen and paper. Now a days everyone have a smartphone with internet connectivity.
           We provide an AI Powered WebApp for gathering every news in one place and to Summarize the News, News Classification ect...
           Let get started and explore the current world.
@@ -62,7 +62,7 @@
         <div class="tab-pane fade show active" id="general" role="tabpanel" aria-labelledby="General-tab">
           <% if(general != null) { %>
           <% general.forEach(function(article, index) { %>
-          <a href="<%- article.url %>" class="news__card">
+          <a target="_blank" href="<%- article.url %>" class="news__card">
             <div class="row each-row">
               <div class="col-md-4">
                 <img src="<%- article.urlToImage %>" alt="<%- article.title %>" width="300px" height='240px'>
@@ -78,7 +78,7 @@
           No posts found.
           <% } %>
         </div>
-        <div class="tab-pane fade" id="sports" role="tabpanel" aria-labelledby="Sport-tab">
+        <div class="tab-pane fade show active" id="sports" role="tabpanel" aria-labelledby="Sport-tab">
           <% if(sports != null) { %>
           <% sports.forEach(function(article, index) { %>
           <a href="<%- article.url %>" class="news__card" width="150" height="150">
@@ -97,7 +97,7 @@
           No posts found.
           <% } %>
         </div>
-        <div class="tab-pane fade" id="technology" role="tabpanel" aria-labelledby="Technology-tab">
+        <div class="tab-pane fade show active" id="technology" role="tabpanel" aria-labelledby="Technology-tab">
           <% if(tech != null) { %>
           <% tech.forEach(function(article, index) { %>
           <a href="<%- article.url %>" class="news__card" width="150" height="150">
@@ -116,7 +116,7 @@
           No posts found.
           <% } %>
         </div>
-        <div class="tab-pane fade" id="business" role="tabpanel" aria-labelledby="Business-tab">
+        <div class="tab-pane fade show active" id="business" role="tabpanel" aria-labelledby="Business-tab">
           <% if(business != null) { %>
           <% business.forEach(function(article, index) { %>
           <a href="<%- article.url %>" class="news__card" width="150" height="150">
@@ -135,7 +135,7 @@
           No posts found.
           <% } %>
         </div>
-        <div class="tab-pane fade" id="health" role="tabpanel" aria-labelledby="Health-tab">
+        <div class="tab-pane fade show active" id="health" role="tabpanel" aria-labelledby="Health-tab">
           <% if(health != null) { %>
           <% health.forEach(function(article, index) { %>
           <a href="<%- article.url %>" class="news__card" width="150" height="150">

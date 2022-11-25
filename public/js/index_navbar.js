@@ -18,7 +18,7 @@ var util = {
         containerBottom = containerOffset + containerHeight;
 
       if (scrollPosition < containerBottom - 20 && scrollPosition >= containerOffset - 20) {
-        $(link).addClass("active");
+        
       } else {
         $(link).removeClass("active");
       }
